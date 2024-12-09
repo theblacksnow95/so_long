@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:16:16 by emurillo          #+#    #+#             */
-/*   Updated: 2024/12/08 18:08:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:35:11 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	handle_mouseclick(int button, int x, int y, void *param)
 {
 	(void)param;
-	printf("Mouse button %d clicked at (%d %d)\n", button, x, y);
+	printf("Mouse button %d clicked at (%d, %d)\n", button, x, y);
 	return (0);
 }
 
