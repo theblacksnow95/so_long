@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:32:30 by emurillo          #+#    #+#             */
-/*   Updated: 2024/12/12 18:21:26 by emurillo         ###   ########.fr       */
+/*   Updated: 2024/12/15 13:54:04 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ int	main(void)
 		return (1);
 	}
 	preload_textures(game.mlx_ptr, &game.textures);
-	mlx_hook(game.win, 17, 0L, handle_close, NULL);
+	mlx_hook(game.win, 17, 0L, handle_close, &game);
 	mlx_hook(game.win, 3, 1L << 1, handle_keys, NULL);
 	mlx_loop_hook(game.mlx_ptr, render_frame, &game);
 	mlx_loop(game.mlx_ptr);
