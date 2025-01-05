@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:41:10 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/05 15:51:51 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:07:48 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**read_map(const char *map_filepath)
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		buf = map_str;
-		map_str =ft_strjoin(map_str, line);
+		map_str = ft_strjoin(map_str, line);
 		free(buf);
 		free(line);
 	}

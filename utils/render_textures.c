@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 21:23:33 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/05 16:42:08 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:22:46 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,23 @@ void	render_map(char **map, t_game *game)
 void	preload_textures(t_game *game)
 {
 	game->img_walls = mlx_xpm_file_to_image(game->ptr, \
-	"../images/cover/TX-Tileset-Wall_resized.xpm", &game->img_w, \
+	"images/cover/TX-Tileset-Wall_resized.xpm", &game->img_w, \
 	&game->img_h);
 	game->img_floor = mlx_xpm_file_to_image(game->ptr, \
-	"../images/cover/TX Tileset Grass_resized.xpm", &game->img_w, \
+	"images/cover/TX Tileset Grass_resized.xpm", &game->img_w, \
 	&game->img_h);
 	game->img_collect = mlx_xpm_file_to_image(game->ptr, \
-	"../images/cover/coin_01.xpm", &game->img_w, &game->img_h);
+	"images/cover/coin_01.xpm", &game->img_w, &game->img_h);
 	game->img_player = mlx_xpm_file_to_image(game->ptr, \
-	"../images/cover/characters.xpm", &game->img_w, &game->img_h);
+	"images/cover/characters.xpm", &game->img_w, &game->img_h);
 	game->img_exit = mlx_xpm_file_to_image(game->ptr, \
-	"../images/cover/things.xpm", &game->img_w, &game->img_h);
+	"images/cover/things.xpm", &game->img_w, &game->img_h);
 	if (!game->img_walls || !game->img_floor || !game->img_exit)
 	{
-		ft_printf("Error loading textures.\n");
+		ft_printf("Error loading textures floor, exit, wall.\n");
 		exit(1);
 	}
-	if (!game->img_collect)
+	if (!game->img_collect || !game->img_player)
 	{
 		ft_printf("Error loading textures.\n");
 		exit(1);

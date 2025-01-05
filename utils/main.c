@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/05 15:51:46 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:07:20 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		game.map = read_map(argv[1]);
 		init_game(game, argv[1]);
 	}
 	return (0);
