@@ -6,12 +6,11 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:49:32 by emurillo          #+#    #+#             */
-/*   Updated: 2024/12/16 17:50:14 by emurillo         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:30:28 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,8 +18,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define WIN_WIDTH 800
-#define WIN_HEIGHT 640
+#define WIN_WIDTH 600
+#define WIN_HEIGHT 400
 
 
 typedef struct s_game

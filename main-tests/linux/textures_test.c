@@ -6,12 +6,11 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:32:30 by emurillo          #+#    #+#             */
-/*   Updated: 2024/12/15 13:54:04 by emurillo         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:20:57 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
