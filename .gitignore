@@ -52,6 +52,7 @@ Mkfile.old
 dkms.conf
 
 # Vscode
+vscode
 .vscode
-.vscode/settings.json
+/.vscode/settings.json
 .json
