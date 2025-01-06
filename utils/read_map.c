@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:41:10 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/05 17:07:48 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:05:17 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ char	**read_map(const char *map_filepath)
 
 	fd = open(map_filepath, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_printf("Error accessing the file path: %s", map_filepath);
 		return (0);
-	}
 	map_str = ft_strdup("");
 	while ((line = get_next_line(fd)) != NULL)
 	{
@@ -39,4 +36,3 @@ char	**read_map(const char *map_filepath)
 	free(map_str);
 	return (map);
 }
-

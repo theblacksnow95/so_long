@@ -15,6 +15,7 @@ typedef struct s_game
 	void	*ptr;
 	void	*win;
 	char	**map;
+	void	*stat_image;
 	void	*img_floor;
 	void	*img_walls;
 	void	*img_collect;
@@ -27,7 +28,7 @@ typedef struct s_game
 	int		n_collect;
 	int		n_player;
 	int		x_player;
-	int		y_plater;
+	int		y_player;
 	int		moves;
 	int		exit;
 }			t_game;
@@ -49,5 +50,8 @@ char	**read_map(const char *map_filepath);
 void	preload_textures(t_game *game);
 int		init_game(t_game game, char *map);
 void	render_map(char **map, t_game *game);
+int		close_key(int keycode, t_game *game);
+int		close_window(t_game *game);
+void	render_game(t_game *game);
 
 #endif
