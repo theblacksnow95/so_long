@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:15:32 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/06 16:05:20 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:40:15 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	free_textures(t_game *game)
 	if (game->img_collect || game->img_exit || game->img_floor \
 	|| game->img_player || game->img_walls)
 	{
-		free(game->img_collect);
-		free(game->img_exit);
-		free(game->img_floor);
-		free(game->img_player);
-		free(game->img_walls);
+		mlx_destroy_image(game->ptr, game->img_collect);
+		mlx_destroy_image(game->ptr, game->img_exit);
+		mlx_destroy_image(game->ptr, game->img_floor);
+		mlx_destroy_image(game->ptr, game->img_player);
+		mlx_destroy_image(game->ptr, game->img_walls);
 	}
 	return (0);
 }
