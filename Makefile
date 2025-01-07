@@ -1,5 +1,5 @@
 NAME = prototype_v0
-SRC = utils/main.c utils/init_game.c utils/read_map.c utils/render_textures.c utils/exit_game.c
+SRC = utils/main.c utils/init_game_v1.c utils/read_map.c utils/render_textures_v1.c utils/exit_game.c
 MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
 MLX_LIB = $(MLX_DIR)/libmlx.a
