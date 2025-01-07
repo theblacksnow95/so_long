@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:15:32 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/07 11:40:15 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:58:03 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	free_textures(t_game *game)
 		mlx_destroy_image(game->ptr, game->img_player);
 		mlx_destroy_image(game->ptr, game->img_walls);
 	}
+	ft_printf("Images freed correctly.\n");
 	return (0);
 }
 
@@ -37,6 +38,7 @@ int	close_window(t_game *game)
 	}
 	if (game->ptr)
 		free(game->ptr);
+	ft_printf("mlx pointer freed correctly.\n");
 	exit(0);
 	return (0);
 }
