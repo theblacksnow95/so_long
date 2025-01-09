@@ -53,5 +53,6 @@ void	render_map(char **map, t_game *game);
 int		close_key(int keycode, t_game *game);
 int		close_window(t_game *game);
 void	render_game(t_game *game);
+int		map_validation(char **map, t_game *game);
 
 #endif
