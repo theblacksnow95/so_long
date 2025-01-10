@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/09 12:50:14 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:38:42 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	format_check(char *map_name)
 
 int	main(int argc, char **argv)
 {
-	t_game game;
-
+	t_game	game;
 	if (argc == 2)
 	{
 		game.map = read_map(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/09 13:27:00 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:46:04 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	is_walled(char **map)
 	y = 0;
 	while (map[y])
 		y++;
-	while (map[0][x] != '\0' && map[y - 1][x] !='\0')
+	while (map[0][x] != '\0' && map[y - 1][x] != '\0')
 	{
 		if (map[0][x] != '1' || map[y - 1][x] != '1')
 			return (1);
@@ -69,7 +69,7 @@ int	is_walled(char **map)
 int	valid_components(t_game *game)
 {
 	int	x;
-	int y;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -129,7 +129,6 @@ int	map_validation(char **map, t_game *game)
 	if (valid_components(game))
 	{
 		ft_printf("Error, map components are invalid.\n");
-		ft_printf("C=%d, P=%d, E=%d\n", game->n_collect, game->n_player, game->exit);
 		exit (0);
 	}
 	if (is_chars(map))

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
+/*   Updated: 2025/01/10 11:06:20 by emurillo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include <unistd.h>
@@ -33,7 +45,7 @@ typedef struct s_game
 	int		exit;
 }			t_game;
 
-# define  ESC_KEY 65307
+# define ESC_KEY 65307
 
 # define Q_KEY 113
 # define A_KEY 97
@@ -54,5 +66,7 @@ int		close_key(int keycode, t_game *game);
 int		close_window(t_game *game);
 void	render_game(t_game *game);
 int		map_validation(char **map, t_game *game);
+int		moves(int keycode, t_game *game);
+void	img_draw(t_game *game, void *image, int x, int y);
 
 #endif

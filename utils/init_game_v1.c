@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/07 15:50:02 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/10 11:08:16 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,8 @@ int	init_game(t_game game, char *map)
 	game.map = read_map(map);
 	preload_textures(&game);
 	if (!map)
-	{
-		ft_printf("error map path.\n");
 		return (1);
-	}
+	mlx_hook(game.win, 2, 1L >> 0, moves, &game);
 	mlx_key_hook(game.win, close_key, &game);
 	mlx_hook(game.win, 17, 0, close_window, &game);
 	render_frame(&game);
