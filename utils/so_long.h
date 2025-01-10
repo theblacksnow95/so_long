@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/10 11:06:20 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:21:21 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ void	render_game(t_game *game);
 int		map_validation(char **map, t_game *game);
 int		moves(int keycode, t_game *game);
 void	img_draw(t_game *game, void *image, int x, int y);
+int		locate_player(t_game *game);
+int		check_moves(t_game *game, int y_player, int x_player);
 
 #endif
