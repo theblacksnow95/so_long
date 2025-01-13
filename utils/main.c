@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 10:57:17 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:38:32 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		return (ft_printf("Incorrect arguments given.\n"));
+		return (0);
 	}
 	return (0);
 }
