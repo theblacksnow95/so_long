@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/09 14:46:04 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/13 11:07:34 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ int	map_validation(char **map, t_game *game)
 	game->n_player = 0;
 	game->n_collect = 0;
 	game->exit = 0;
+	game->moves = 0;
 	is_rectangle(map);
 	if (is_walled(map))
 	{

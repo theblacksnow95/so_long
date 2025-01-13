@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/10 14:13:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/13 10:57:17 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,30 @@ void	format_check(char *map_name)
 		ft_printf("Map extension is incorrect, correct one is '.ber'.\n");
 		exit(1);
 	}
+}
+
+int	locate_player(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'P')
+			{
+				game->y_player = y;
+				game->x_player = x;
+				return (0);
+			}
+			x++;
+		}
+		y++;
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
