@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:32:21 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/14 15:42:45 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:41:24 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	check_exit(t_game *game, int y_player, int x_player)
 	if (game->map[y_player][x_player] == 'E' \
 	&& game->n_collect != 0 && game->exit != 0)
 	{
+		ft_printf("Money first!.\n");
+		ft_printf("You have %d left.\n", game->n_collect);
 		return (1);
 	}
 	return (0);

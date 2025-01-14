@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:18:56 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 11:06:07 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:44:07 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ int	up_moves(int keycode, t_game *game)
 {
 	if (game->map[game->y_player - 1][game->x_player] == 'E' \
 		&& game->exit == 1)
+	{
+		ft_printf("Money first!.\n");
+		ft_printf("You have %d left.\n", game->n_collect);
 		return (0);
+	}
 	if (game->map[game->y_player - 1][game->x_player] != '1')
 	{
 		ft_printf("Checking position above: y = %d, x = %d\n", \
@@ -35,7 +39,11 @@ int	down_moves(int keycode, t_game *game)
 {
 	if (game->map[game->y_player + 1][game->x_player] == 'E' \
 		&& game->exit == 1)
+	{
+		ft_printf("Money first!.\n");
+		ft_printf("You have %d left.\n", game->n_collect);
 		return (0);
+	}
 	if (game->map[game->y_player + 1][game->x_player] != '1')
 	{
 		ft_printf("Checking position above: y = %d, x = %d\n", \
@@ -54,7 +62,11 @@ int	left_moves(int keycode, t_game *game)
 {
 	if (game->map[game->y_player][game->x_player - 1] == 'E' \
 		&& game->exit == 1)
+	{
+		ft_printf("Money first!.\n");
+		ft_printf("You have %d left.\n", game->n_collect);
 		return (0);
+	}
 	if (game->map[game->y_player][game->x_player - 1] != '1')
 	{
 		check_moves(game, game->y_player, game->x_player - 1);
@@ -71,7 +83,11 @@ int	right_moves(int keycode, t_game *game)
 {
 	if (game->map[game->y_player][game->x_player + 1] == 'E' \
 		&& game->exit == 1)
+	{
+		ft_printf("Money first!.\n");
+		ft_printf("You have %d left.\n", game->n_collect);
 		return (0);
+	}
 	if (game->map[game->y_player][game->x_player + 1] != '1')
 	{
 		ft_printf("Checking position above: y = %d, x = %d\n", \
