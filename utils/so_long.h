@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 12:47:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:10:18 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 
 # define WIN_W 800
 # define WIN_H 640
+
+typedef struct s_state
+{
+	int	collected;
+	int	exit_reached;
+	int	total_collectibles;
+}		t_flood;
 
 typedef struct s_game
 {
@@ -71,5 +78,6 @@ void	img_draw(t_game *game, void *image, int x, int y);
 int		locate_player(t_game *game);
 int		check_moves(t_game *game, int y_player, int x_player);
 int		path_validation(char **map, int y, int x, int coins);
+int		free_map(char **map);
 
 #endif

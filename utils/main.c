@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 16:38:32 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:22:05 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	ft_bzero(&game, sizeof(t_game));
 	if (argc == 2)
 	{
 		game.map = read_map(argv[1]);
 		format_check(argv[1]);
-		map_validation(game.map, &game);
 		locate_player(&game);
+		map_validation(game.map, &game);
 		init_game(game, argv[1]);
 	}
 	else

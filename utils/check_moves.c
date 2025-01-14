@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:32:21 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 10:51:46 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:27:42 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	check_exit(t_game *game, int y_player, int x_player)
 	{
 		img_draw(game, game->img_player, x_player, y_player);
 		ft_printf("You won, congrats, you are a functional human being!!.\n");
-		exit(0);
+		close_window(game);
 	}
 	if (game->map[y_player][x_player] == 'E' \
 	&& game->n_collect != 0 && game->exit != 0)

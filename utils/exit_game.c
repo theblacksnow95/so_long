@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:15:32 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/07 15:58:03 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:05:39 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ int	free_textures(t_game *game)
 	return (0);
 }
 
+int	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	return (0);
+}
+
 int	close_window(t_game *game)
 {
 	if (game->win)
@@ -35,6 +49,8 @@ int	close_window(t_game *game)
 		free_textures(game);
 		mlx_destroy_window(game->ptr, game->win);
 		ft_printf("Closing window...\n");
+		if (game->map)
+			free_map(game->map);
 	}
 	if (game->ptr)
 		free(game->ptr);

@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/13 14:45:04 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:10:43 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,24 +122,16 @@ int	map_validation(char **map, t_game *game)
 	game->exit = 0;
 	game->moves = 0;
 	is_rectangle(map);
-	if (is_walled(map))
+	if (is_walled(map) || valid_components(game) || is_chars(map))
 	{
-		ft_printf("map not walled.%d\n", is_walled(map));
+		ft_printf("Error, map not valid.\n");
+		free_map(map);
 		exit(0);
-	}
-	if (valid_components(game))
-	{
-		ft_printf("Error, map components are invalid.\n");
-		exit (0);
-	}
-	if (is_chars(map))
-	{
-		ft_printf("Error not permitted characthers used.\n");
-		exit (0);
 	}
 	if (!path_validation(map, game->y_player, game->x_player, game->n_collect))
 	{
 		ft_printf("Error, no valid path in map.\n");
+		free_map(map);
 		exit (0);
 	}
 	return (0);

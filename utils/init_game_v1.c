@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/10 11:08:16 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:24:08 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ static void	window_size(t_game *game)
 {
 	int	i;
 
+	if (!game->map || !game->map[0])
+	{
+		ft_printf("Error: Map is invalid or empty.\n");
+		exit(1);
+	}
 	game->map_w = ft_strlen(game->map[0]) * 60;
 	i = 0;
 	while (game->map[i] != NULL)
