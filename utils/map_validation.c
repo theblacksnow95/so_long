@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/14 15:10:43 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:28:47 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,13 +126,13 @@ int	map_validation(char **map, t_game *game)
 	{
 		ft_printf("Error, map not valid.\n");
 		free_map(map);
-		exit(0);
+		close_window(game);
 	}
 	if (!path_validation(map, game->y_player, game->x_player, game->n_collect))
 	{
 		ft_printf("Error, no valid path in map.\n");
 		free_map(map);
-		exit (0);
+		close_window(game);
 	}
 	return (0);
 }

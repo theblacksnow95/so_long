@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/14 16:29:53 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:25:19 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	preload_textures(t_game *game)
 	if (!game->img_walls || !game->img_floor || !game->img_exit)
 	{
 		ft_printf("Error loading textures floor, exit, wall.\n");
-		exit(1);
+		close_window(game);
 	}
 	if (!game->img_collect || !game->img_player)
 	{
@@ -51,7 +51,7 @@ static void	window_size(t_game *game)
 	if (!game->map || !game->map[0])
 	{
 		ft_printf("Error: Map is invalid or empty.\n");
-		exit(1);
+		close_window(game);
 	}
 	game->map_w = ft_strlen(game->map[0]) * 60;
 	i = 0;
