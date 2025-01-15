@@ -42,7 +42,7 @@ $(LIBFT_LIB):
 
 $(MLX_LIB):
 	@echo "Building minilibx library..."
-	@$(MAKE) -C $(MLX_LIB)
+	@$(MAKE) -C $(MLX_DIR)
 
 clean:
 	rm -f $(OBJ)
