@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:15:32 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/16 12:41:11 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:37:45 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	free_map(char **map)
 	int	i;
 
 	i = 0;
+	if (!map)
+		return (0);
 	while (map[i])
 	{
 		free(map[i]);
@@ -52,12 +54,12 @@ int	close_window(t_game *game)
 		mlx_destroy_window(game->ptr, game->win);
 		mlx_destroy_display(game->ptr);
 		ft_printf("Closing window...\n");
-		if (game->map)
-			free_map(game->map);
-		free(game->stat_image);
 	}
 	if (game->ptr)
+	{
 		free(game->ptr);
+		free_map(game->map);
+	}
 	ft_printf("mlx pointer freed correctly.\n");
 	exit(0);
 	return (0);

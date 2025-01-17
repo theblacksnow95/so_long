@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/16 11:33:44 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:55:41 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,13 @@ int	init_game(t_game game, char *map)
 		ft_printf("error creating window.\n");
 		return (1);
 	}
-	game.map = read_map(map);
 	preload_textures(&game);
 	if (!map)
 		return (1);
+	render_frame(&game);
 	mlx_hook(game.win, 2, 1L >> 0, moves, &game);
 	mlx_key_hook(game.win, close_key, &game);
 	mlx_hook(game.win, 17, 0, close_window, &game);
-	render_frame(&game);
 	mlx_loop(game.ptr);
 	return (0);
 }
