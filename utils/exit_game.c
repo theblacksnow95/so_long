@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 14:15:32 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/17 11:37:45 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:38:59 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	free_textures(t_game *game)
 		mlx_destroy_image(game->ptr, game->img_player);
 		mlx_destroy_image(game->ptr, game->img_walls);
 	}
-	ft_printf("Images freed correctly.\n");
+	ft_printf("Freeing textures...\n");
 	return (0);
 }
 
@@ -59,8 +59,8 @@ int	close_window(t_game *game)
 	{
 		free(game->ptr);
 		free_map(game->map);
+		ft_printf("Freeing mlx and map...\n");
 	}
-	ft_printf("mlx pointer freed correctly.\n");
 	exit(0);
 	return (0);
 }

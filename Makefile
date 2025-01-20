@@ -1,5 +1,5 @@
 NAME = so_long
-SRC = utils/main.c utils/init_game_v1.c utils/read_map.c \
+SRC = utils/so_long.c utils/init_game_v1.c utils/read_map.c \
 	  utils/render_textures_v1.c utils/exit_game.c \
 	  utils/map_validation.c utils/movement.c utils/check_moves.c \
 	  utils/path_validation.c
@@ -38,7 +38,7 @@ $(NAME): $(OBJ) $(MLX_LIB) $(LIBFT_LIB)
 
 $(LIBFT_LIB):
 	@echo "Building libft library..."
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) bonus -C $(LIBFT_DIR)
 
 $(MLX_LIB):
 	@echo "Building minilibx library..."

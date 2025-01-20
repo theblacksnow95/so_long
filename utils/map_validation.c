@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/14 18:28:47 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:39:37 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,13 @@ int	is_rectangle(char **map)
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != (size_t)cols)
-		{
-			ft_printf("Incorrect map, not rectangular.\n");
-			exit(1);
-		}
+			return (1);
 		i++;
 		rows++;
 	}
 	if (rows == cols)
-	{
-		ft_printf("Map is a square. Try another one.\n");
-		exit(1);
-	}
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	is_walled(char **map)
@@ -124,14 +118,16 @@ int	map_validation(char **map, t_game *game)
 	is_rectangle(map);
 	if (is_walled(map) || valid_components(game) || is_chars(map))
 	{
-		ft_printf("Error, map not valid.\n");
-		free_map(map);
+		ft_printf("Error\n Map not valid.\n");
+		if (valid_components(game))
+			ft_printf("Error\n NO DUPLICATES ARE ACCEPTED.\n");
+		free_map(game->map);
 		close_window(game);
 	}
 	if (!path_validation(map, game->y_player, game->x_player, game->n_collect))
 	{
-		ft_printf("Error, no valid path in map.\n");
-		free_map(map);
+		ft_printf("Error\n No valid path in map.\n");
+		free_map(game->map);
 		close_window(game);
 	}
 	return (0);
