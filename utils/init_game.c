@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_game_v1.c                                     :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/17 11:55:41 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:09:33 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	preload_textures(t_game *game)
 	"images/cover/TX Struct_v1.xpm", &game->img_w, &game->img_h);
 	if (!game->img_walls || !game->img_floor || !game->img_exit)
 	{
-		ft_printf("Error loading textures floor, exit, wall.\n");
+		ft_printf("Error\n Loading textures floor, exit, wall failed.\n");
 		close_window(game);
 	}
 	if (!game->img_collect || !game->img_player)
 	{
-		ft_printf("Error loading textures.\n");
+		ft_printf("Error\n Loading textures failed.\n");
 		exit(1);
 	}
 }
@@ -50,7 +50,7 @@ static void	window_size(t_game *game)
 
 	if (!game->map || !game->map[0])
 	{
-		ft_printf("Error: Map is invalid or empty.\n");
+		ft_printf("Error\n Map is invalid or empty.\n");
 		close_window(game);
 	}
 	game->map_w = ft_strlen(game->map[0]) * 60;
@@ -65,14 +65,14 @@ int	init_game(t_game game, char *map)
 	game.ptr = mlx_init();
 	if (!game.ptr)
 	{
-		ft_printf("error inizializing ml11x.\n");
+		ft_printf("Error inizializing ml11x.\n");
 		return (1);
 	}
 	window_size(&game);
 	game.win = mlx_new_window(game.ptr, game.map_w, game.map_h, "2D game");
 	if (!game.win)
 	{
-		ft_printf("error creating window.\n");
+		ft_printf("Error creating window.\n");
 		return (1);
 	}
 	preload_textures(&game);
