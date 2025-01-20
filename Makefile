@@ -1,6 +1,6 @@
 NAME = so_long
-SRC = utils/so_long.c utils/init_game_v1.c utils/read_map.c \
-	  utils/render_textures_v1.c utils/exit_game.c \
+SRC = utils/so_long.c utils/init_game.c utils/read_map.c \
+	  utils/render_textures.c utils/exit_game.c \
 	  utils/map_validation.c utils/movement.c utils/check_moves.c \
 	  utils/path_validation.c
 MLX_DIR_LINUX = minilibx-linux
