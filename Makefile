@@ -23,7 +23,7 @@ ifeq ($(UNAME_S), Linux)
 else ifeq ($(UNAME_S), Darwin)
 	MLX_DIR = $(MLX_DIR_MAC)
 	MLX_LIB = $(MLX_LIB_MAC)
-	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -framework OpenGL -framework AppKit -lz
+	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -framework OpenGL -framework AppKit -lz -lft
 endif
 
 
