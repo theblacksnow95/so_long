@@ -19,11 +19,11 @@ MLX_LIB_MAC = $(MLX_DIR_MAC)/libmlx.a
 ifeq ($(UNAME_S), Linux)
 	MLX_DIR = $(MLX_DIR_LINUX)
 	MLX_LIB = $(MLX_LIB_LINUX)
-	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lXext -lX11 -lm -lft
+	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -framework OpenGL -framework AppKit -lz
 else ifeq ($(UNAME_S), Darwin)
 	MLX_DIR = $(MLX_DIR_MAC)
 	MLX_LIB = $(MLX_LIB_MAC)
-	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lXext -lX11 -lm -lft
+	LFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR)
 endif
 
 
