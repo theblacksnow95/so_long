@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/20 11:00:18 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:27:16 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,33 @@ typedef struct s_game
 	int		exit;
 }			t_game;
 
-# define ESC_KEY 65307
+# ifdef __APPLE__
 
-# define Q_KEY 113
-# define A_KEY 97
-# define S_KEY 115
-# define D_KEY 100
-# define W_KEY 119
+#  define ESC_KEY 53
+#  define Q_KEY 12
+#  define A_KEY 0
+#  define S_KEY 1
+#  define D_KEY 2
+#  define W_KEY 13
+#  define LEFT_ARROWKEY 123
+#  define RIGHT_ARROWKEY 124
+#  define DOWN_ARROWKEY 125
+#  define UP_ARROWKEY 126
 
-# define LEFT_ARROWKEY 65361
-# define RIGHT_ARROWKEY 65363
-# define DOWN_ARROWKEY 65364
-# define UP_ARROWKEY 65362
+# else
+#  define ESC_KEY 65307
+#  define Q_KEY 113
+#  define A_KEY 97
+#  define S_KEY 115
+#  define D_KEY 100
+#  define W_KEY 119
+
+#  define LEFT_ARROWKEY 65361
+#  define RIGHT_ARROWKEY 65363
+#  define DOWN_ARROWKEY 65364
+#  define UP_ARROWKEY 65362
+
+# endif
 
 char	**read_map(const char *map_filepath);
 void	preload_textures(t_game *game);
