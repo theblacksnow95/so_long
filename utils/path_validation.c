@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:54:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/14 16:33:55 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:11:07 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	flood(char **map, int y, int x, t_flood *state)
 	if (map[y][x] == 'C')
 		state->collected++;
 	if (map[y][x] == 'E' )
+	{
 		state->exit_reached = 1;
+		return ;
+	}
 	map[y][x] = 'V';
 	flood(map, y - 1, x, state);
 	flood(map, y + 1, x, state);
