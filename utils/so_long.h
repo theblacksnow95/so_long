@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/21 10:27:16 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:29:01 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ typedef struct s_game
 #  define S_KEY 115
 #  define D_KEY 100
 #  define W_KEY 119
-
 #  define LEFT_ARROWKEY 65361
 #  define RIGHT_ARROWKEY 65363
 #  define DOWN_ARROWKEY 65364
