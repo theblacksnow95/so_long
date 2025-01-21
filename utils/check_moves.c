@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:32:21 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/20 11:28:04 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:13:16 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static int	check_collectible(t_game *game, int y_player, int x_player)
 		game->map[y_player][x_player] = '0';
 		game->n_collect--;
 	}
+	if (game->n_collect == 0)
+		game->exit = 0;
 	return (0);
 }
 
@@ -57,8 +59,6 @@ int	check_moves(t_game *game, int y_player, int x_player)
 {
 	if (game->map[y_player][x_player] == '1')
 		return (1);
-	if (game->n_collect == 0)
-		game->exit = 0;
 	check_collectible(game, y_player, x_player);
 	check_floor(game, y_player, x_player);
 	check_exit(game, y_player, x_player);
