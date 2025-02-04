@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:59:16 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/20 11:39:37 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:21:03 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ int	is_rectangle(char **map)
 	int	cols;
 	int	i;
 
-	rows = 0;
-	i = 0;
-	cols = ft_strlen(map[0]);
 	if (!map || !map[0])
 		return (0);
+	cols = ft_strlen(map[0]);
+	i = 0;
+	rows = 0;
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != (size_t)cols)
-			return (1);
-		i++;
+		{
+			return (0);
+		}
 		rows++;
+		i++;
 	}
-	if (rows == cols)
-		return (1);
-	return (0);
+	if (rows < 2 || cols < 2)
+		return (0);
+	return (1);
 }
 
 int	is_walled(char **map)
@@ -83,8 +85,8 @@ int	valid_components(t_game *game)
 		y++;
 	}
 	if (game->exit != 1 || game->n_player != 1 || game->n_collect == 0)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int	is_chars(char **map)
@@ -115,12 +117,10 @@ int	map_validation(char **map, t_game *game)
 	game->n_collect = 0;
 	game->exit = 0;
 	game->moves = 0;
-	is_rectangle(map);
-	if (is_walled(map) || valid_components(game) || is_chars(map))
+	if (is_walled(map) || !valid_components(game) || \
+	is_chars(map) || !is_rectangle(map))
 	{
 		ft_printf("Error\n Map not valid.\n");
-		if (valid_components(game))
-			ft_printf("Error\n NO DUPLICATES ARE ACCEPTED.\n");
 		free_map(game->map);
 		close_window(game);
 	}

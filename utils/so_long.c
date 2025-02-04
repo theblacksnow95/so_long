@@ -1,20 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/20 11:31:48 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:19:19 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	check_map_exists(char *map_name)
+{
+	int	fd;
+
+	fd = open(map_name, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_printf("Error\n Map does not exist: %s\n", map_name);
+		exit(1);
+	}
+	close(fd);
+	return (0);
+}
+
 int	format_check(char *map_name)
 {
+	int	len;
+
+	len = ft_strlen(map_name);
+	if (len < 10)
+	{
+		ft_printf("Error\n Map name is too short or incorrect.\n");
+		exit(0);
+	}
 	map_name = map_name + (ft_strlen(map_name) - 4);
+	if (map_name[len - 1] == '/')
+	{
+		ft_printf("Error\n Cannot use directories.\n");
+		exit(0);
+	}
 	if (ft_strncmp(map_name, ".ber", 4))
 	{
 		ft_printf("Error\n Map extension is incorrect: ('.ber').\n");
@@ -52,7 +79,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	ft_bzero(&game, sizeof(t_game));
-	if (argc == 2 && !format_check(argv[1]))
+	if (argc == 2 && !format_check(argv[1]) && !check_map_exists(argv[1]))
 	{
 		game.map = read_map(argv[1]);
 		locate_player(&game);
