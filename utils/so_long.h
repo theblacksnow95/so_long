@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:00:08 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/04 18:02:10 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:35:41 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ typedef struct s_game
 
 # endif
 
-char	**read_map(const char *map_filepath, t_game *game);
+char	**read_map(const char *map_filepath);
 void	preload_textures(t_game *game);
 int		init_game(t_game game, char *map);
 void	render_map(char **map, t_game *game);

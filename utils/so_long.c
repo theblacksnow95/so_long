@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/04 18:02:31 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:35:44 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&game, sizeof(t_game));
 	if (argc == 2 && !format_check(argv[1]) && !check_map_exists(argv[1]))
 	{
-		game.map = read_map(argv[1], &game);
+		game.map = read_map(argv[1]);
 		locate_player(&game);
 		map_validation(game.map, &game);
 		init_game(game, argv[1]);

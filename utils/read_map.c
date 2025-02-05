@@ -6,13 +6,23 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:41:10 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/04 18:07:07 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:45:18 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(const char *map_filepath, t_game *game)
+int	close_read(char *map_str, char *line, char *buf)
+{
+	ft_printf("Error\n Map not valid.\n");
+	free(map_str);
+	free(line);
+	free(buf);
+	exit(0);
+	return (0);
+}
+
+char	**read_map(const char *map_filepath)
 {
 	char	**map;
 	char	*line;
@@ -28,9 +38,9 @@ char	**read_map(const char *map_filepath, t_game *game)
 	while (line)
 	{
 		if (line[0] == '\n')
-			close_window(game);
+			close_read(map_str, line, buf);
 		buf = map_str;
-		map_str = ft_strjoin(map_str, line);
+		map_str = ft_strjoin(buf, line);
 		free(line);
 		free(buf);
 		line = get_next_line(fd);

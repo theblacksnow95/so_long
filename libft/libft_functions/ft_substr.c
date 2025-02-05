@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:57:07 by emurillo          #+#    #+#             */
-/*   Updated: 2024/10/16 11:50:50 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:16:49 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,18 @@ size_t	ft_strlen(char const *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	size_t	i;
 	size_t	str_len;
 
-	i = 0;
 	str_len = ft_strlen(s);
 	if (start >= str_len)
-	{
-		sub = (char *)malloc(sizeof(char));
-		if (sub)
-			sub[0] = '\0';
-		return (sub);
-	}
+		return (ft_strdup(""));
 	if (len > str_len - start)
 		len = str_len - start;
 	sub = (char *)malloc((len + 1) * sizeof(char));
 	if (sub == NULL)
 		return (NULL);
-	while (i < len)
-	{
-		sub[i] = s[start + i];
-		i++;
-	}
-	sub[i] = '\0';
+	ft_memcpy(sub, s + start, len);
+	sub[len] = '\0';
 	return (sub);
 }
 

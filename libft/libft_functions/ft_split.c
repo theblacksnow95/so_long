@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:03:09 by yourlogin         #+#    #+#             */
-/*   Updated: 2024/10/18 13:27:47 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:13:57 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,17 @@ static void	*ft_free(char **str, int n)
 {
 	int	i;
 
+	if (!str)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{
 		free(str[i]);
+		str[i] = NULL;
 		i++;
 	}
 	free(str);
+	str = NULL;
 	return (NULL);
 }
 
@@ -80,8 +84,10 @@ char	**ft_split(char *s, char c)
 	size_t	wn;
 	char	**arr;
 
+	if (!s)
+		return (NULL);
 	wn = word_count(s, c);
-	arr = (char **)malloc(sizeof(char *) * (wn + 1));
+	arr = malloc(sizeof(char **) * (wn + 1));
 	if (!arr)
 		return (NULL);
 	return (fill_split(arr, s, c));
