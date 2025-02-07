@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:53:00 by emurillo          #+#    #+#             */
-/*   Updated: 2025/02/05 15:35:44 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:36:20 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int	check_map_exists(char *map_name)
 {
-	int	fd;
+	int		fd;
+	char	buf[1];
 
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 	{
 		ft_printf("Error\n Map does not exist: %s\n", map_name);
+		exit(1);
+	}
+	if (read(fd, buf, 1) < 0)
+	{
+		ft_printf("Error\n Map is a directory: %s\n", map_name);
+		close(fd);
 		exit(1);
 	}
 	close(fd);
@@ -31,11 +38,6 @@ int	format_check(char *map_name)
 	int	len;
 
 	len = ft_strlen(map_name);
-	if (len < 10)
-	{
-		ft_printf("Error\n Map name is too short or incorrect.\n");
-		exit(0);
-	}
 	map_name = map_name + (ft_strlen(map_name) - 4);
 	if (map_name[len - 1] == '/')
 	{
@@ -79,7 +81,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	ft_bzero(&game, sizeof(t_game));
-	if (argc == 2 && !format_check(argv[1]) && !check_map_exists(argv[1]))
+	if (argc == 2 && !format_check(argv[1]) && check_map_exists(argv[1]) == 0)
 	{
 		game.map = read_map(argv[1]);
 		locate_player(&game);
