@@ -6,7 +6,7 @@
 /*   By: emurillo <emurillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:54:43 by emurillo          #+#    #+#             */
-/*   Updated: 2025/01/20 15:09:33 by emurillo         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:21:09 by emurillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 void	preload_textures(t_game *game)
 {
 	game->img_walls = mlx_xpm_file_to_image(game->ptr, \
-	"images/cover/TX Tileset Wall_v1.xpm", &game->img_w, \
-	&game->img_h);
+	"images/Wall.xpm", &game->img_w, &game->img_h);
 	game->img_floor = mlx_xpm_file_to_image(game->ptr, \
-	"images/cover/TX Tileset Grass_v1.xpm", &game->img_w, \
-	&game->img_h);
+	"images/Floor.xpm", &game->img_w, &game->img_h);
 	game->img_collect = mlx_xpm_file_to_image(game->ptr, \
-	"images/cover/coin_01.xpm", &game->img_w, &game->img_h);
+	"images/Coin.xpm", &game->img_w, &game->img_h);
 	game->img_player = mlx_xpm_file_to_image(game->ptr, \
-	"images/cover/character_v2.xpm", &game->img_w, &game->img_h);
+	"images/Player.xpm", &game->img_w, &game->img_h);
 	game->img_exit = mlx_xpm_file_to_image(game->ptr, \
-	"images/cover/TX Struct_v1.xpm", &game->img_w, &game->img_h);
+	"images/Exit.xpm", &game->img_w, &game->img_h);
 	if (!game->img_walls || !game->img_floor || !game->img_exit)
 	{
 		ft_printf("Error\n Loading textures floor, exit, wall failed.\n");
